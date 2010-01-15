@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>Odin</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>com.springsource.sts.grails.core.nature</nature>
+		<nature>org.eclipse.jdt.groovy.core.groovyNature</nature>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>gwt-0.4.1-grails-app-conf</name>
+			<type>2</type>
+			<location>C:/Documents and Settings/carlo.inting/.grails/1.2.0/projects/Odin/plugins/gwt-0.4.1/grails-app/conf</location>
+		</link>
+		<link>
+			<name>gwt-0.4.1-grails-app-controllers</name>
+			<type>2</type>
+			<location>C:/Documents and Settings/carlo.inting/.grails/1.2.0/projects/Odin/plugins/gwt-0.4.1/grails-app/controllers</location>
+		</link>
+		<link>
+			<name>gwt-0.4.1-src-groovy</name>
+			<type>2</type>
+			<location>C:/Documents and Settings/carlo.inting/.grails/1.2.0/projects/Odin/plugins/gwt-0.4.1/src/groovy</location>
+		</link>
+		<link>
+			<name>gwt-0.4.1-src-java</name>
+			<type>2</type>
+			<location>C:/Documents and Settings/carlo.inting/.grails/1.2.0/projects/Odin/plugins/gwt-0.4.1/src/java</location>
+		</link>
+		<link>
+			<name>hibernate-1.2.0-grails-app-i18n</name>
+			<type>2</type>
+			<location>C:/Documents and Settings/carlo.inting/.grails/1.2.0/projects/Odin/plugins/hibernate-1.2.0/grails-app/i18n</location>
+		</link>
+		<link>
+			<name>taxonomy-0.1-grails-app-domain</name>
+			<type>2</type>
+			<location>C:/Documents and Settings/carlo.inting/.grails/1.2.0/projects/Odin/plugins/taxonomy-0.1/grails-app/domain</location>
+		</link>
+		<link>
+			<name>taxonomy-0.1-grails-app-services</name>
+			<type>2</type>
+			<location>C:/Documents and Settings/carlo.inting/.grails/1.2.0/projects/Odin/plugins/taxonomy-0.1/grails-app/services</location>
+		</link>
+		<link>
+			<name>tomcat-1.2.0-src-groovy</name>
+			<type>2</type>
+			<location>C:/Documents and Settings/carlo.inting/.grails/1.2.0/projects/Odin/plugins/tomcat-1.2.0/src/groovy</location>
+		</link>
+	</linkedResources>
+</projectDescription>
