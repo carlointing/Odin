@@ -1,2 +1,10 @@
 # Ignore generated files
-web-app/WEB-INF/*
+stacktrace.log
+test/reports
+web-app/WEB-INF
+.classpath
+.project
+.settings
+*.iws
+*.war
+*DB*
