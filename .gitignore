@@ -2,6 +2,8 @@
 stacktrace.log
 test/reports
 web-app/WEB-INF
+web-app/gwt
+war
 .classpath
 .project
 .settings
