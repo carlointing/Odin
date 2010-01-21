@@ -2,11 +2,8 @@
 <head>
   <!-- Integrate with Sitemesh layouts           -->
   <meta name="layout" content="main" />
-
-  <!--                                           -->
-  <!-- Any title is fine                         -->
-  <!--                                           -->
-  <title>Example title (change this!)</title>
+  
+  <title>Taxonomy Editor</title>
 
   <!--                                           -->
   <!-- This script loads your compiled module.   -->
@@ -16,16 +13,11 @@
   <script type="text/javascript" src="${createLinkTo(dir: 'gwt/org.synergis.TaxonomyEditor', file: 'org.synergis.TaxonomyEditor.nocache.js')}"></script>
 </head>
 
-<!--                                           -->
-<!-- The body can have arbitrary html, or      -->
-<!-- you can leave the body empty if you want  -->
-<!-- to create a completely dynamic ui         -->
-<!--                                           -->
 <body>
-  <!-- OPTIONAL: include this if you want history support -->
+  <!-- includes history support -->
   <iframe id="__gwt_historyFrame" style="width:0;height:0;border:0"></iframe>
-
-  <!-- Add the rest of the page here, or leave it -->
-  <!-- blank for a completely dynamic interface.  -->
+  
+  <div id="taxonomyContainer"></div>
+  
 </body>
 </html>
