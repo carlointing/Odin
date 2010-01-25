@@ -12,14 +12,16 @@ class TaxonomyEditorService {
 	def taxonomyService
 	
     String listTaxonomies() {
-		def taxonomyList = Taxonomy.list()
+		def taxonomyList = Taxonomy.findAllByNameNotEqual(TaxonomyService.GLOBAL_TAXONOMY_NAME)
 		return taxonomyList.encodeAsJSON()
     }
 	
-	def deleteTaxonomy(String taxonomyName) {
-		// delete all related Taxons
-		
-		// delete Taxonomy
+	def deleteTaxonomy(String taxonomyName) {	
+		// deleting the Taxonomy should cascade to all Taxons
+		def results = Taxonomy.findAllByName(taxonomyName)
+		for (Taxonomy taxonomy : results) {
+			taxonomy.delete()
+		}
 	}
 	
 	def createTaxonomy(String taxonomyName) {
