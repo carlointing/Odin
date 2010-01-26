@@ -16,8 +16,10 @@ class TaxonomyEditorService {
 		return taxonomyList.encodeAsJSON()
     }
 	
-	def deleteTaxonomy(String taxonomyName) {	
-		// deleting the Taxonomy should cascade to all Taxons
+	def deleteTaxonomy(String taxonomyName) {
+		// TODO: need to check whether TaxonLinks should be cleaned up as well
+		
+		// deleting the Taxonomy should cascade to all Taxons		
 		def results = Taxonomy.findAllByName(taxonomyName)
 		for (Taxonomy taxonomy : results) {
 			taxonomy.delete()

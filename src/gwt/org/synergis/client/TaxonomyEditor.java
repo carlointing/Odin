@@ -23,6 +23,7 @@ import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.PopupPanel;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.TextBox;
+import com.google.gwt.user.client.ui.Tree;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
 /**
@@ -39,7 +40,9 @@ public class TaxonomyEditor implements EntryPoint {
 	private Button deleteTaxonomyButton;	
 
 	private PopupPanel createTaxonomyPopup;
-
+	
+	private Tree taxonTree;
+	
 	/**
 	 * This is the entry point method.
 	 */
@@ -54,11 +57,22 @@ public class TaxonomyEditor implements EntryPoint {
 		initializeCreateTaxonomyButton();
 
 		initializeDeleteTaxonomyButton();
-
-		RootPanel rootPanel = RootPanel.get("taxonomyContainer");
-		rootPanel.add(taxonomyListBox);
-		rootPanel.add(createTaxonomyButton);
-		rootPanel.add(deleteTaxonomyButton);
+		
+		VerticalPanel taxonomyListPanel = new VerticalPanel();
+		taxonomyListPanel.add(new Label("List of Taxonomies"));
+		taxonomyListPanel.add(taxonomyListBox);
+		
+		VerticalPanel buttonPanel = new VerticalPanel();
+		buttonPanel.add(createTaxonomyButton);
+		buttonPanel.add(deleteTaxonomyButton);
+		
+		HorizontalPanel mainPanel = new HorizontalPanel();
+		
+		mainPanel.add(taxonomyListPanel);
+		mainPanel.add(buttonPanel);
+		
+		RootPanel rootPanel = RootPanel.get("taxonomyContainer");		
+		rootPanel.add(mainPanel);	
 	}
 
 	private void initializeDeleteTaxonomyButton() {
@@ -69,7 +83,9 @@ public class TaxonomyEditor implements EntryPoint {
 			public void onClick(ClickEvent event) {
 				final String taxonomy = taxonomyListBox
 						.getItemText(taxonomyListBox.getSelectedIndex());
-
+				
+				
+				
 				if (taxonomy == null || taxonomy.isEmpty()) {
 					Window.alert("No Taxonomy has been selected!");
 				} else {
