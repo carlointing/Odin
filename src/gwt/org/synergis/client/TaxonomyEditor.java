@@ -23,7 +23,7 @@ import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.PopupPanel;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.TextBox;
-import com.google.gwt.user.client.ui.Tree;
+
 import com.google.gwt.user.client.ui.VerticalPanel;
 
 /**
@@ -40,9 +40,7 @@ public class TaxonomyEditor implements EntryPoint {
 	private Button deleteTaxonomyButton;	
 
 	private PopupPanel createTaxonomyPopup;
-	
-	private Tree taxonTree;
-	
+
 	/**
 	 * This is the entry point method.
 	 */
@@ -57,7 +55,7 @@ public class TaxonomyEditor implements EntryPoint {
 		initializeCreateTaxonomyButton();
 
 		initializeDeleteTaxonomyButton();
-		
+
 		VerticalPanel taxonomyListPanel = new VerticalPanel();
 		taxonomyListPanel.add(new Label("List of Taxonomies"));
 		taxonomyListPanel.add(taxonomyListBox);
@@ -72,7 +70,9 @@ public class TaxonomyEditor implements EntryPoint {
 		mainPanel.add(buttonPanel);
 		
 		RootPanel rootPanel = RootPanel.get("taxonomyContainer");		
-		rootPanel.add(mainPanel);	
+		rootPanel.add(mainPanel);
+		
+
 	}
 
 	private void initializeDeleteTaxonomyButton() {
@@ -83,9 +83,7 @@ public class TaxonomyEditor implements EntryPoint {
 			public void onClick(ClickEvent event) {
 				final String taxonomy = taxonomyListBox
 						.getItemText(taxonomyListBox.getSelectedIndex());
-				
-				
-				
+
 				if (taxonomy == null || taxonomy.isEmpty()) {
 					Window.alert("No Taxonomy has been selected!");
 				} else {
