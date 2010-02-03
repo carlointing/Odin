@@ -6,4 +6,5 @@ public interface TaxonomyEditorServiceAsync {
     void listTaxonomies(AsyncCallback<String> callback);
     void deleteTaxonomy(String taxonomyName, AsyncCallback<Void> callback);
     void createTaxonomy(String taxonomyName, AsyncCallback<Void> callback);
+    void findTaxonsByTaxonomy(String taxonomy, AsyncCallback<String> callback);
 }

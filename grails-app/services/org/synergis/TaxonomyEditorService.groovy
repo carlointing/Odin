@@ -30,4 +30,10 @@ class TaxonomyEditorService {
 		def taxonomy = new Taxonomy(name:taxonomyName)
 		taxonomy.save()
 	}
+	
+	String findTaxonsByTaxonomy(String taxonomy) {
+		def taxons = taxonomyService.findTaxonsDescendedFrom(null, [taxonomy:taxonomy])
+		return taxons.encodeAsJSON()
+	}
+	
 }
