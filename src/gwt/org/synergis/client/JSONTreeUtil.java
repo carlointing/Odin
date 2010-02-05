@@ -11,19 +11,29 @@ import com.google.gwt.user.client.ui.TreeItem;
 
 public class JSONTreeUtil {
 
+	/**
+	 * @param jsonItems
+	 * @param parentProperty
+	 * @param idProperty
+	 * @param treeLabelProperty
+	 * @return
+	 */
 	public static List<TreeItem> createTreeItemFromJSONArray(
 			JSONArray jsonItems, String parentProperty, String idProperty,
 			String treeLabelProperty) {
+		if (jsonItems == null || parentProperty == null || idProperty == null
+				|| treeLabelProperty == null) {
+			throw new IllegalArgumentException("All parameters are required!");
+		}		
+		
 		List<TreeItem> rootTreeItems = new ArrayList<TreeItem>();
 
 		Map<String, IntermediateTreeItem> treeItemMap = new HashMap<String, IntermediateTreeItem>();
-
+		
 		for (int i = 0; i < jsonItems.size(); i++) {
-
 			JSONObject currentItem = jsonItems.get(i).isObject();
-
 			if (currentItem != null) {
-
+				
 				String parentId;
 
 				if (currentItem.get(parentProperty).isNull() != null) {
@@ -42,10 +52,8 @@ public class JSONTreeUtil {
 				
 				IntermediateTreeItem treeItem = new IntermediateTreeItem(
 						new TreeItem(taxonName), parentId);
-
 				String taxonId = Double.toString(currentItem.get(idProperty)
-						.isNumber().doubleValue());
-				
+						.isNumber().doubleValue());				
 				treeItemMap.put(taxonId, treeItem);
 			}
 		}
@@ -54,20 +62,14 @@ public class JSONTreeUtil {
 				.entrySet()) {
 			
 			if (entry.getValue().getTreeParentId() != null) {
-
 				TreeItem parent = treeItemMap.get(
-						entry.getValue().getTreeParentId()).getTreeItem();
-
-				if (parent != null) {
-					
+						entry.getValue().getTreeParentId()).getTreeItem();				
+				if (parent != null) {					
 					parent.addItem(entry.getValue().getTreeItem());
-				} else {
-					
+				} else {					
 					rootTreeItems.add(entry.getValue().getTreeItem());
 				}
-
-			} else {
-				
+			} else {				
 				rootTreeItems.add(entry.getValue().getTreeItem());
 			}
 		}
