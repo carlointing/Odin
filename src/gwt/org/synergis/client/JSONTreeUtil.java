@@ -5,18 +5,34 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.mortbay.util.ajax.JSONObjectConvertor;
+
 import com.google.gwt.json.client.JSONArray;
 import com.google.gwt.json.client.JSONObject;
+import com.google.gwt.json.client.JSONValue;
 import com.google.gwt.user.client.ui.TreeItem;
 
 public class JSONTreeUtil {
 
 	/**
+	 * Creates a TreeItem hierarchy from a JSONArray. The JSONArray should be an array
+	 * of JSONObjects with the following keys:
+	 * 		<li>a parent key that contains the parent object information</li>
+	 * 		<li>an id key that serves as a unique identifier for the JSONObjects</li>
+	 * 		<li>a tree label key whose value will be displayed in the corresponding 
+	 * 			TreeItem</li>
+	 * <br></br>
+	 * If the JSONArray contains anything that is not a JSONObject, or doesn't have 
+	 * the keys above, they will be ignored.
+	 * 
+	 * A List of root TreeItem objects (meaning, TreeItem objects without parents) 
+	 * is returned.  
+	 * 
 	 * @param jsonItems
 	 * @param parentProperty
 	 * @param idProperty
 	 * @param treeLabelProperty
-	 * @return
+	 * @return 
 	 */
 	public static List<TreeItem> createTreeItemFromJSONArray(
 			JSONArray jsonItems, String parentProperty, String idProperty,
@@ -76,7 +92,28 @@ public class JSONTreeUtil {
 
 		return rootTreeItems;
 	}
-
+	
+	public static String convertJSONValueToString(JSONValue value) {
+		
+		String stringValue;
+		
+		if (value.isBoolean() != null) {
+			stringValue = value.isBoolean().toString();
+		} else if (value.isNumber() != null) {
+			stringValue = Double.toString(value.isNumber().doubleValue());
+		} else if (value.isString() != null) {
+			stringValue = value.isString().stringValue();
+		} else if (value.isObject() != null) {
+			stringValue = value.isObject().toString();
+		} else if (value.isArray() != null) {
+			StringBuilder arrayString = new StringBuilder();						
+		}
+		
+		
+		return null;
+	}
+	
+	
 	private static class IntermediateTreeItem {
 		private TreeItem treeItem;
 		private String treeParentId;

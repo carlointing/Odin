@@ -7,4 +7,6 @@
 	
     <!-- Specify the module entry point class.                   -->
     <entry-point class="org.synergis.client.TaxonomyEditor"/>
+    
+    <source path="/test/gwt"/>
 </module>
